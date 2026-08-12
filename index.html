@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أحمد عبد المغني | للمحاماة والاستشارات القانونية</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #0d1b2a;
+            --secondary-color: #1b263b;
+            --accent-color: #c5a059;
+            --light-color: #f8f9fa;
+            --dark-color: #111111;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Tajawal', sans-serif; }
+        body { background-color: var(--light-color); color: var(--dark-color); line-height: 1.6; }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: #fff;
+            padding: 40px 20px;
+            text-align: center;
+            border-bottom: 4px solid var(--accent-color);
+        }
+
+        .profile-img {
+            width: 150px; height: 150px; border-radius: 50%;
+            border: 5px solid var(--accent-color);
+            margin-bottom: 15px; object-fit: cover;
+        }
+
+        .container { max-width: 1100px; margin: 30px auto; padding: 0 20px; }
+        .section-title { text-align: center; margin-bottom: 30px; font-size: 1.8rem; color: var(--primary-color); position: relative; }
+        .section-title::after { content: ''; display: block; width: 60px; height: 3px; background: var(--accent-color); margin: 8px auto 0; }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+
+        .service-card {
+            background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            text-align: center; cursor: pointer; transition: 0.3s; border-top: 4px solid var(--accent-color);
+        }
+        .service-card:hover { transform: translateY(-5px); }
+        .service-img { width: 100%; height: 160px; object-fit: cover; border-radius: 6px; margin-bottom: 15px; }
+        .details-btn { background-color: var(--primary-color); color: #fff; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; margin-top: 10px; }
+
+        .contact-section {
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            margin-top: 40px;
+            border-top: 4px solid var(--accent-color);
+        }
+        .contact-section h3 { color: var(--primary-color); margin-bottom: 15px; font-size: 1.5rem; }
+        .contact-links { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 15px; }
+        .contact-btn {
+            background: var(--primary-color);
+            color: #fff;
+            padding: 12px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: background 0.3s;
+        }
+        .contact-btn.whatsapp { background-color: #25d366; }
+        .contact-btn:hover { opacity: 0.9; }
+
+        .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); align-items: center; justify-content: center; padding: 20px; }
+        .modal-content { background: #fff; width: 100%; max-width: 600px; padding: 30px; border-radius: 8px; max-height: 85vh; overflow-y: auto; text-align: right; }
+        .close-btn { float: left; font-size: 1.8rem; cursor: pointer; color: #777; }
+        .close-btn:hover { color: #000; }
+        .modal-content h2 { color: var(--primary-color); margin-bottom: 15px; border-bottom: 2px solid var(--accent-color); padding-bottom: 5px; }
+        .modal-content p { color: #444; margin-bottom: 10px; }
+
+        footer { background-color: var(--primary-color); color: #fff; text-align: center; padding: 20px; margin-top: 40px; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <!-- صورتك الشخصية -->
+        <img src="1000000422.jpg" alt="أحمد عبد المغني" class="profile-img">
+        <h1>أحمد عبد المغني</h1>
+        <p>محاماة والاستشارات القانونية المتكاملة</p>
+    </header>
+
+    <div class="container">
+        <h2 class="section-title">مجالات التخصص والدعم القانوني</h2>
+        <div class="services-grid">
+            <!-- القضايا المدنية -->
+            <div class="service-card" onclick="openModal('civilModal')">
+                <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=600&q=80" alt="القضايا المدنية" class="service-img">
+                <h3>القضايا المدنية</h3>
+                <p>النزاعات المالية، العقود، والتعويضات.</p>
+                <button class="details-btn">التفاصيل والمفاهيم</button>
+            </div>
+            <!-- القضايا الجنائية -->
+            <div class="service-card" onclick="openModal('criminalModal')">
+                <img src="https://images.unsplash.com/photo-1505664194779-8beaceb93744?auto=format&fit=crop&w=600&q=80" alt="القضايا الجنائية" class="service-img">
+                <h3>القضايا الجنائية</h3>
+                <p>الجنح، الجنايات، والدفاع الجنائي.</p>
+                <button class="details-btn">التفاصيل والمفاهيم</button>
+            </div>
+            <!-- القضايا التجارية -->
+            <div class="service-card" onclick="openModal('commercialModal')">
+                <img src="https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=600&q=80" alt="القضايا التجارية" class="service-img">
+                <h3>القضايا التجارية</h3>
+                <p>تأسيس الشركات ومنازعات الشركاء.</p>
+                <button class="details-btn">التفاصيل والمفاهيم</button>
+            </div>
+            <!-- قضايا الأسرة -->
+            <div class="service-card" onclick="openModal('familyModal')">
+                <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600&q=80" alt="قضايا الأسرة" class="service-img">
+                <h3>قضايا الأسرة والأحوال الشخصية</h3>
+                <p>الطلاق، النفقة، والحضانة والحلول الودية.</p>
+                <button class="details-btn">التفاصيل والمفاهيم</button>
+            </div>
+        </div>
+
+        <!-- قسم التواصل المباشر -->
+        <div class="contact-section">
+            <h3>للتواصل المباشر والاستشارات القانونية</h3>
+            <p>يسعدنا تلقي استفساراتكم وخدمتكم على مدار الساعة عبر الواتساب أو البريد الإلكتروني.</p>
+            <div class="contact-links">
+                <a href="https://wa.me/201226606932" target="_blank" class="contact-btn whatsapp">
+                    <i class="fa-brands fa-whatsapp"></i> واتساب: 01226606932
+                </a>
+                <a href="mailto:mogha911@gmail.com" class="contact-btn">
+                    <i class="fa-solid fa-envelope"></i> البريد الإلكتروني: mogha911@gmail.com
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- النوافذ المنبثقة للتفاصيل -->
+    <div id="civilModal" class="modal" onclick="closeModal('civilModal')">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <span class="close-btn" onclick="closeModal('civilModal')">&times;</span>
+            <h2>القضايا المدنية</h2>
+            <p><strong>ما هي؟</strong> هي النزاعات المتعلقة بالحقوق المالية، العقود، والتعويضات بين الأفراد أو الشركات.</p>
+            <p><strong>إمتى تلجأ للمحكمة؟</strong> عند الإخلال بالالتزامات التعاقدية أو الامتناع عن سداد مستحقات مالية.</p>
+        </div>
+    </div>
+
+    <div id="criminalModal" class="modal" onclick="closeModal('criminalModal')">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <span class="close-btn" onclick="closeModal('criminalModal')">&times;</span>
+            <h2>القضايا الجنائية</h2>
+            <p><strong>ما هي؟</strong> القضايا الناشئة عن جرائم تعاقب عليها القوانين الجنائية (كالاعتداء أو النصب).</p>
+            <p><strong>إمتى تلجأ للمحكمة؟</strong> فور التعرض لضرر جنائي يتطلب تحرير محضر رسمي واللجوء للنيابة العامة.</p>
+        </div>
+    </div>
+
+    <div id="commercialModal" class="modal" onclick="closeModal('commercialModal')">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <span class="close-btn" onclick="closeModal('commercialModal')">&times;</span>
+            <h2>القضايا التجارية</h2>
+            <p><strong>ما هي؟</strong> المعاملات التجارية وقضايا الشركات والشيكات والإفلاس.</p>
+            <p><strong>إمتى تلجأ للمحكمة؟</strong> عند فض المنازعات بين الشركاء أو المطالبة بالحقوق التجارية المتعثرة.</p>
+        </div>
+    </div>
+
+    <div id="familyModal" class="modal" onclick="closeModal('familyModal')">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <span class="close-btn" onclick="closeModal('familyModal')">&times;</span>
+            <h2>قضايا الأسرة والأحوال الشخصية</h2>
+            <p><strong>ما هي؟</strong> النزاعات الأسرية كالطلاق، النفقات، والحضانة.</p>
+            <p><strong>إمتى تلجأ للمحكمة؟</strong> عند تعذر التسوية الودية بين الأطراف لضمان الحقوق الأسرية.</p>
+        </div>
+    </div>
+
+    <script>
+        function openModal(id) { document.getElementById(id).style.display = 'flex'; }
+        function closeModal(id) { document.getElementById(id).style.display.style = 'none'; }
+        // تصحيح دالة الإغلاق البسيط
+        function closeModal(id) { document.getElementById(id).style.display = 'none'; }
+    </script>
+
+    <footer>
+        <p>جميع الحقوق محفوظة © 2026 - أحمد عبد المغني للمحاماة والاستشارات القانونية</p>
+    </footer>
+</body>
+  </html>
+                                                                                       
